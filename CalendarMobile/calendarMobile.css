@@ -29,19 +29,19 @@
 	height				: 45px;
 	margin-top			: 4px;
 	display				: table;
-	background-image	: -moz-linear-gradient(top, #ffffff, #000000);
-	background-image	: -ms-linear-gradient(top, #ffffff, #000000);
-	background-image	: -o-linear-gradient(top, #ffffff, #000000);
-	background-image	: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#000000));
-	background-image	: -webkit-linear-gradient(top, #ffffff, #000000);
-	background-image	: linear-gradient(top, #ffffff, #000000);
+	background-image	: -moz-linear-gradient(top, #F2F2FD, #F2F2F2);
+	background-image	: -ms-linear-gradient(top, #F2F2FD, #F2F2F2);
+	background-image	: -o-linear-gradient(top, #F2F2FD, #F2F2F2);
+	background-image	: -webkit-gradient(linear, center top, center bottom, from(#F2F2FD), to(#F2F2F2));
+	background-image	: -webkit-linear-gradient(top, #F2F2FD, #F2F2F2);
+	background-image	: linear-gradient(top, #F2F2FD, #F2F2F2);
 }
 
 .btn_calendario, .btn_calendario_selected{
 	display: table;
 	color					: #5B5B5B;
 	width					: 40%;
-	height					: 30px;
+	height					: 40px;
 	margin					: 0 10px 0 10px;
 	float					: left;
 	border					: solid 2px #fff;

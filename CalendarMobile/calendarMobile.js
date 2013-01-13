@@ -1,6 +1,15 @@
+/**
+ * Calendar Mobile
+ *
+ * @version 1.0
+ *
+ * @author Jhon Erick Marroquin Cardenas <jhon3rick@gmail.com> || @jhon3rick
+ */
+
 //Variables globales a definir por el desarrollador
 var limiteInferiorYear	= 2000;
 var separadorFecha		= "-";
+var contador=0;
 
 //Variables Globales Calendario
 var fechaInicioCalendario;
@@ -204,6 +213,10 @@ function cambiarFechaCalendario(opc){
 	}
 }
 
+document.addEventListener('touchstart', function(event) {
+    alert(event.touches.length);
+}, false);
+
 //Eventos Quo.js -->
 $$(document).ready(function(event){
 	$$(".signo_calendario").touch(function(){
@@ -213,7 +226,14 @@ $$(document).ready(function(event){
 		setTimeout(function(){ document.getElementById(cambiarFecha).className ="signo_calendario"; },100);
 
 	});
+	
+	//$$('#preuba').on("touchstart", contador);
+	//$$('#preuba').on("touchend",  autoFuncion(contador))
 
+	//function autoFuncion(variable){alert(variable);}
+	// $$('.signo_calendario').touchstart(function(){
+	// 	alert("inicio")
+	// });
 	//$$(".signo_calendario").hold(function(event){
 		//console.log(event);
 	// 	for(i in event){
