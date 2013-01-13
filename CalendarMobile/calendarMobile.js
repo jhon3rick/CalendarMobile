@@ -75,7 +75,7 @@ function cargarCalendario(inputFecha, titulo, modal) {
 	}
 
 	padre_calendario.appendChild(div_contenedor);
-	if(modal==true){ document.getElementById("carga_modal_calendario").className	= "modal_calendario"; }
+	if(modal==true){ document.getElementById("carga_modal_calendario").className	= "fondo_modal_calendario"; }
 
 
 	//document.getElementById("contenedor_calendario").style.display	= "block";

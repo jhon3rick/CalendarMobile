@@ -124,7 +124,7 @@
 }
 .signo_calendario_selected, .signo_calendario{ height: 50px; font-size: 25px; }
 
-.modal_calendario{
+.fondo_modal_calendario{
 	position			: absolute !important;
 	background-color	: rgba(78, 78, 78, 0.9);
 	top					: 0px;
