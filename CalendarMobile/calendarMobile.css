@@ -60,13 +60,13 @@
 
 }
 
-.btn_calendario_selected{
-	background-image		: -moz-linear-gradient(top, #ffffff, #3399FF);
-	background-image		: -ms-linear-gradient(top, #ffffff, #3399FF);
-	background-image		: -o-linear-gradient(top, #ffffff, #3399FF);
-	background-image		: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#3399FF));
-	background-image		: -webkit-linear-gradient(top, #ffffff, #3399FF);
-	background-image		: linear-gradient(top, #ffffff, #3399FF);
+.btn_calendario_selected, .signo_calendario_selected{
+	background-image	: -moz-linear-gradient(top, #D5E2F1, #FFF);
+	background-image	: -ms-linear-gradient(top, #D5E2F1, #FFF);
+	background-image	: -o-linear-gradient(top, #D5E2F1, #FFF);
+	background-image	: -webkit-gradient(linear, center top, center bottom, from(#D5E2F1), to(#FFF));
+	background-image	: -webkit-linear-gradient(top, #D5E2F1, #FFF);
+	background-image	: linear-gradient(top, #D5E2F1, #FFF);
 }
 .centrar_btn_vertical{
 	width			: 100%;
@@ -121,21 +121,8 @@
 	background-image	: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#dedcdb));
 	background-image	: -webkit-linear-gradient(top, #ffffff, #dedcdb);
 	background-image	: linear-gradient(top, #ffffff, #dedcdb);
-	height				: 50px;
-	font-size			: 25px;
 }
-
-.signo_calendario_selected{
-	background-image	: -moz-linear-gradient(top, #ffffff, #3399FF);
-	background-image	: -ms-linear-gradient(top, #ffffff, #3399FF);
-	background-image	: -o-linear-gradient(top, #ffffff, #3399FF);
-	background-image	: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#3399FF));
-	background-image	: -webkit-linear-gradient(top, #ffffff, #3399FF);
-	background-image	: linear-gradient(top, #ffffff, #3399FF);
-	height				: 50px;
-	font-size			: 25px;
-}
-
+.signo_calendario_selected, .signo_calendario{ height: 50px; font-size: 25px; }
 
 .modal_calendario{
 	position			: absolute !important;
