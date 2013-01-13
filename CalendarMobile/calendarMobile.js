@@ -71,19 +71,22 @@ contenido_calendario += '	</div>';
 
 function cargarCalendario(inputFecha, titulo, modal) {
 
-	inputFecha.blur();
-
+	//Div padre contenedor Calendario
 	var div_contenedor = document.createElement("div");
 	div_contenedor.innerHTML = contenido_calendario;
 	div_contenedor.setAttribute("id", "carga_modal_calendario");
+
 	padre_calendario=inputFecha.parentNode;
+
 	if(document.getElementById('carga_modal_calendario')){
+		//Se elimina el calendario si esta desplegado
 		var calendario = document.getElementById("carga_modal_calendario");
 		calendario.parentNode.removeChild(calendario);
-		//padre_calendario.parentNode.removeChild(document.getElementById('carga_modal_calendario'));
 	}
+	//Inserta calendario despues del nodo input
+	inputFecha.parentNode.insertBefore (div_contenedor, inputFecha.nextSibling);
 
-	padre_calendario.appendChild(div_contenedor);
+	//Asigna clase si el caloendario es modal
 	if(modal==true){ document.getElementById("carga_modal_calendario").className	= "fondo_modal_calendario"; }
 
 
@@ -212,10 +215,15 @@ function cambiarFechaCalendario(opc){
 
 	}
 }
+/*
+window.onload = function() {
+  	document.getElementById('prueba').addEventListener('touchstart', function(event) {
+	    alert(event.touches.length+"-"+event);
+	    //for(i in event){ alert(i+": "+event[i]) }
+	}, 	false);
+};
+*/
 
-document.addEventListener('touchstart', function(event) {
-    alert(event.touches.length);
-}, false);
 
 //Eventos Quo.js -->
 $$(document).ready(function(event){
@@ -227,15 +235,16 @@ $$(document).ready(function(event){
 
 	});
 	
-	//$$('#preuba').on("touchstart", contador);
-	//$$('#preuba').on("touchend",  autoFuncion(contador))
+	// $$('#preuba').on("touchstart", contador);
+	// $$('#preuba').on("touchend",  autoFuncion(contador))
 
-	//function autoFuncion(variable){alert(variable);}
+	// function autoFuncion(variable){alert(variable);}
 	// $$('.signo_calendario').touchstart(function(){
 	// 	alert("inicio")
 	// });
-	//$$(".signo_calendario").hold(function(event){
-		//console.log(event);
+
+	// $$(".signo_calendario").hold(function(event){
+	// 	console.log(event);
 	// 	for(i in event){
 	// 		console.log(i+": "+event[i])
 	// 	}
