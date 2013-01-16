@@ -1,137 +1,145 @@
 #contenedor_calendario{
-	font-family				: "arial", Times, sans-serif;
-	overflow				: hidden;
-	width					: 240px;
-	text-align				: center;
-	border					: solid 2px #fff;
-	-moz-border-radius		: 4px;
-	-webkit-border-radius	: 4px;
-	border-radius			: 4px;
-	background-color		: #333;
-	margin					: 0 auto;
+	font-family          : "arial", Times, sans-serif;
+	overflow             : hidden;
+	width                : 240px;
+	text-align           : center;
+	border               : solid 2px #fff;
+	-moz-border-radius   : 4px;
+	-webkit-border-radius: 4px;
+	border-radius        : 4px;
+	background-color     : #333;
+	margin               : 0 auto;
 }
 
 #titulos_calendario{
-	float	: left;
-	width	: 100%;
-	color	:#fff;
+	float: left;
+	width: 100%;
+	color:#fff;
 }
 
 .titulo_calendario{
-	float	: left;
-	width	: 100%;
-	height	: 20px;
+	float : left;
+	width : 100%;
+	height: 20px;
 }
 #contenedor_btn_calendario{
-	float				: left;
-	width				: 100%;
-	border-top			: 1px solid;
-	height				: 45px;
-	margin-top			: 4px;
-	display				: table;
-	background-image	: -moz-linear-gradient(top, #F2F2FD, #F2F2F2);
-	background-image	: -ms-linear-gradient(top, #F2F2FD, #F2F2F2);
-	background-image	: -o-linear-gradient(top, #F2F2FD, #F2F2F2);
-	background-image	: -webkit-gradient(linear, center top, center bottom, from(#F2F2FD), to(#F2F2F2));
-	background-image	: -webkit-linear-gradient(top, #F2F2FD, #F2F2F2);
-	background-image	: linear-gradient(top, #F2F2FD, #F2F2F2);
+	float           : left;
+	width           : 100%;
+	border-top      : 1px solid;
+	height          : 45px;
+	margin-top      : 4px;
+	display         : table;
+	background-image: -moz-linear-gradient(top, #D5E2F1, #BBB);
+	background-image: -ms-linear-gradient(top, #D5E2F1, #BBB);
+	background-image: -o-linear-gradient(top, #D5E2F1, #BBB);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#D5E2F1), to(#BBB));
+	background-image: -webkit-linear-gradient(top, #D5E2F1, #BBB);
+	background-image: linear-gradient(top, #D5E2F1, #BBB);
+}
+
+#sub_titulo_fecha_calendario{
+	float        : left;
+	width        : 100%;
+	font-size    : 12px;
+	border-bottom: 2px solid #FFF;
+	margin-bottom: 7px;
 }
 
 .btn_calendario, .btn_calendario_selected{
-	display: table;
-	color					: #5B5B5B;
-	width					: 40%;
-	height					: 40px;
-	margin					: 0 10px 0 10px;
-	float					: left;
-	border					: solid 2px #fff;
-	-moz-border-radius		: 4px;
-	-webkit-border-radius	: 4px;
-	border-radius			: 4px;
+	display              : table;
+	color                : #5B5B5B;
+	width                : 40%;
+	height               : 33px;
+	margin               : 0 10px 0 10px;
+	float                : left;
+	border               : solid 2px #fff;
+	-moz-border-radius   : 4px;
+	-webkit-border-radius: 4px;
+	border-radius        : 4px;
 }
 
 .btn_calendario{
-	background-image		: -moz-linear-gradient(top, #ffffff, #dedcdb);
-	background-image		: -ms-linear-gradient(top, #ffffff, #dedcdb);
-	background-image		: -o-linear-gradient(top, #ffffff, #dedcdb);
-	background-image		: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#dedcdb));
-	background-image		: -webkit-linear-gradient(top, #ffffff, #dedcdb);
-	background-image		: linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -moz-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -ms-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -o-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#dedcdb));
+	background-image: -webkit-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: linear-gradient(top, #ffffff, #dedcdb);
 
 }
 
 .btn_calendario_selected, .signo_calendario_selected{
-	background-image	: -moz-linear-gradient(top, #D5E2F1, #FFF);
-	background-image	: -ms-linear-gradient(top, #D5E2F1, #FFF);
-	background-image	: -o-linear-gradient(top, #D5E2F1, #FFF);
-	background-image	: -webkit-gradient(linear, center top, center bottom, from(#D5E2F1), to(#FFF));
-	background-image	: -webkit-linear-gradient(top, #D5E2F1, #FFF);
-	background-image	: linear-gradient(top, #D5E2F1, #FFF);
-}
+	background-image: -moz-linear-gradient(top, #D5E2F1, #FFF);
+	background-image: -ms-linear-gradient(top, #D5E2F1, #FFF);
+	background-image: -o-linear-gradient(top, #D5E2F1, #FFF);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#D5E2F1), to(#FFF));
+	background-image: -webkit-linear-gradient(top, #D5E2F1, #FFF);
+	background-image: linear-gradient(top, #D5E2F1, #FFF);
+	}
 .centrar_btn_vertical{
-	width			: 100%;
-	display			: table-cell;
-	vertical-align	: middle;
+	width         : 100%;
+	display       : table-cell;
+	vertical-align: middle;
 }
 
 .sub_titulo_calendario{
-	float	: left;
-	width	: 33%;
+	float: left;
+	width: 33%;
 }
 
 .fecha_calendario{
-	float					: left;
-	width					: 65px;
-	border					: solid 2px #fff;
-	-moz-border-radius		: 4px;
-	-webkit-border-radius	: 4px;
-	border-radius			: 4px;
-	color					: #7F7F7F;
-	font-weight				: bold;
+	float                : left;
+	width                : 65px;
+	border               : solid 2px #fff;
+	-moz-border-radius   : 4px;
+	-webkit-border-radius: 4px;
+	border-radius        : 4px;
+	color                : #7F7F7F;
+	font-weight          : bold;
 
 }
 
-.fecha_calendario_left{ margin: 0px 5px 0px 10px; }
+.fecha_calendario_left{ margin : 0px 5px 0px 10px; }
 .fecha_calendario_right{ margin: 0px 10px 0px 5px; }
 
 .contenedor_signo_calendario, .contenedor_numero_calendario{
-	float	: left;
-	width	: 100%;
-	display	: table;
+	float  : left;
+	width  : 100%;
+	display: table;
 }
 
 
 .contenedor_numero_calendario{
-	height				: 60px;
-	border-top			: 1px solid; border-bottom: 1px solid;
-	font-size			: 25px;
-	background-color	: #fff;
+	height          : 60px;
+	border-top      : 1px solid; border-bottom: 1px solid;
+	font-size       : 25px;
+	background-color: #fff;
 }
 
 .numero_calendario, .signo_calendario, .span_text_btn_calendario, #modal_calendario{
-	display			: table-cell;
-	vertical-align	: middle;
-	width			: 100%;
+	display       : table-cell;
+	vertical-align: middle;
+	width         : 100%;
 }
 
 .signo_calendario{
-	background-image	: -moz-linear-gradient(top, #ffffff, #dedcdb);
-	background-image	: -ms-linear-gradient(top, #ffffff, #dedcdb);
-	background-image	: -o-linear-gradient(top, #ffffff, #dedcdb);
-	background-image	: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#dedcdb));
-	background-image	: -webkit-linear-gradient(top, #ffffff, #dedcdb);
-	background-image	: linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -moz-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -ms-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -o-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#dedcdb));
+	background-image: -webkit-linear-gradient(top, #ffffff, #dedcdb);
+	background-image: linear-gradient(top, #ffffff, #dedcdb);
 }
 .signo_calendario_selected, .signo_calendario{ height: 50px; font-size: 25px; }
 
 .fondo_modal_calendario{
-	position			: absolute !important;
-	background-color	: rgba(78, 78, 78, 0.9);
-	top					: 0px;
-	width				: 100%;
-	height				: 100%;
-	display				: table;
-	left				: 0px;
+	position        : absolute !important;
+	background-color: rgba(78, 78, 78, 0.9);
+	top             : 0px;
+	width           : 100%;
+	height          : 100%;
+	display         : table;
+	left            : 0px;
 }
 
-#modal_calendario{	position:relative !important; }
+#modal_calendario{	position : relative !important; }

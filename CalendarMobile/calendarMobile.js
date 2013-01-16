@@ -1,7 +1,7 @@
 /**
  * Calendar Mobile
  *
- * @version 1.0
+ * @version 1.1
  *
  * @author Jhon Erick Marroquin Cardenas <jhon3rick@gmail.com> || @jhon3rick
  */
@@ -12,20 +12,27 @@ var separadorFecha		= "-";
 var contador=0;
 
 //Variables Globales Calendario
-var fechaInicioCalendario;
+var fechaCalendario;
 var yearCalendario;
 var monthCalendario;
 var dayCalendario;
 var idInputCalendario;
 var contenido_calendario;
+//var arrayMeses = new Array ("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic");
+var arrayMeses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+var arrayDias = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
 contenido_calendario  = '	<div id="modal_calendario">';
 contenido_calendario += '		<div id="contenedor_calendario">';
 contenido_calendario += '			<div id="titulos_calendario">';
 contenido_calendario += '				<div id="titulo_calendario" class="titulo_calendario"></div>';
-contenido_calendario += '				<div class="sub_titulo_calendario">Dia</div>';
-contenido_calendario += '				<div class="sub_titulo_calendario">Mes</div>';
-contenido_calendario += '				<div class="sub_titulo_calendario">Año</div>';
+contenido_calendario += '				<div id="sub_titulo_fecha_calendario"></div>';
+
+//Subtitulo cabecera columa calendario Dia Mes Año
+// contenido_calendario += '				<div class="sub_titulo_calendario">Dia</div>';
+// contenido_calendario += '				<div class="sub_titulo_calendario">Mes</div>';
+// contenido_calendario += '				<div class="sub_titulo_calendario">Año</div>';
+
 contenido_calendario += '			</div>';
 contenido_calendario += '			<div id="contenedor_day_calendario" class="fecha_calendario fecha_calendario_left">';
 contenido_calendario += '			  	<div class="contenedor_signo_calendario">';
@@ -86,27 +93,26 @@ function cargarCalendario(inputFecha, titulo, modal) {
 	//Inserta calendario despues del nodo input
 	inputFecha.parentNode.insertBefore (div_contenedor, inputFecha.nextSibling);
 
-	//Asigna clase si el caloendario es modal
+	//Asigna clase si el calendario es modal
 	if(modal==true){ document.getElementById("carga_modal_calendario").className	= "fondo_modal_calendario"; }
 
-
-	//document.getElementById("contenedor_calendario").style.display	= "block";
-	document.getElementById("titulo_calendario").innerHTML			= titulo;
+	document.getElementById("titulo_calendario").innerHTML	= titulo;
 	idInputCalendario=inputFecha.id;
 
-	if(inputFecha.value==""){ fechaInicioCalendario = new Date(); }
+	if(inputFecha.value==""){ fechaCalendario = new Date(); }
 	else{
-		var inputFecha=inputFecha.value.split(separadorFecha);
-		fechaInicioCalendario = new Date(inputFecha[0], inputFecha[1]-1, inputFecha[2]);
+		var inputFecha			= inputFecha.value.split(separadorFecha);
+		fechaCalendario	= new Date(inputFecha[0], inputFecha[1]-1, inputFecha[2]);
 	}
 
-	yearCalendario	= fechaInicioCalendario.getFullYear();
-	monthCalendario	= fechaInicioCalendario.getMonth();
-	dayCalendario	= fechaInicioCalendario.getDate();
+	yearCalendario	= fechaCalendario.getFullYear();
+	monthCalendario	= fechaCalendario.getMonth();
+	dayCalendario	= fechaCalendario.getDate();
 
 	document.getElementById("year_calendario").innerHTML	= yearCalendario;
-	document.getElementById("month_calendario").innerHTML	= monthCalendario+1;
-	document.getElementById("day_calendario").innerHTML		= dayCalendario;
+	document.getElementById("month_calendario").innerHTML	= arrayMeses[monthCalendario].slice(0,3);
+	document.getElementById("day_calendario").innerHTML		= (("0"+dayCalendario).slice(-2));
+	document.getElementById("sub_titulo_fecha_calendario").innerHTML = (arrayDias[fechaCalendario.getDay()]+", "+dayCalendario+" de "+arrayMeses[monthCalendario]+" de "+yearCalendario);
 }
 
 //Funcion q valida si existe o no la fecha
@@ -140,6 +146,9 @@ function addRemoveYearCalendario(evento){
 
 	if(!validarFechaCalendario()) daysMonthCalendario();
 	document.getElementById("day_calendario").innerHTML=dayCalendario;
+
+	fechaCalendario	= new Date(yearCalendario, monthCalendario, dayCalendario);
+	document.getElementById("sub_titulo_fecha_calendario").innerHTML = (arrayDias[fechaCalendario.getDay()]+", "+dayCalendario+" de "+arrayMeses[monthCalendario]+" de "+yearCalendario);
 }
 
 function addRemoveMonthCalendario(evento){
@@ -155,10 +164,14 @@ function addRemoveMonthCalendario(evento){
 		monthCalendario--;
 		if(monthCalendario<0)monthCalendario=11;
 	}
-	document.getElementById("month_calendario").innerHTML=monthCalendario+1;
+	//document.getElementById("month_calendario").innerHTML=monthCalendario+1;
+	document.getElementById("month_calendario").innerHTML= arrayMeses[monthCalendario].slice(0,3);
 
 	if(!validarFechaCalendario()) daysMonthCalendario();
-	document.getElementById("day_calendario").innerHTML=dayCalendario;
+	document.getElementById("day_calendario").innerHTML=(("0"+(dayCalendario)).slice(-2));
+
+	fechaCalendario	= new Date(yearCalendario, monthCalendario, dayCalendario);
+	document.getElementById("sub_titulo_fecha_calendario").innerHTML = (arrayDias[fechaCalendario.getDay()]+", "+dayCalendario+" de "+arrayMeses[monthCalendario]+" de "+yearCalendario);
 }
 
 function addRemoveDayCalendario(evento){
@@ -176,11 +189,14 @@ function addRemoveDayCalendario(evento){
 		dayCalendario--;
 		if(!validarFechaCalendario()) daysMonthCalendario();
 	}
-	document.getElementById("day_calendario").innerHTML=dayCalendario;
+	document.getElementById("day_calendario").innerHTML=(("0"+dayCalendario).slice(-2));
+
+	fechaCalendario	= new Date(yearCalendario, monthCalendario, dayCalendario);
+	document.getElementById("sub_titulo_fecha_calendario").innerHTML = (arrayDias[fechaCalendario.getDay()]+", "+dayCalendario+" de "+arrayMeses[monthCalendario]+" de "+yearCalendario);
 }
 
 function accionBtnAceptar(){
-	document.getElementById(idInputCalendario).value=yearCalendario+separadorFecha+(monthCalendario+1)+separadorFecha+dayCalendario;
+	document.getElementById(idInputCalendario).value=yearCalendario+separadorFecha+(("0"+(monthCalendario+1)).slice(-2))+separadorFecha+(("0"+(dayCalendario)).slice(-2));
 	//document.getElementById("contenedor_calendario").style.display ="none";
 	var calendario = document.getElementById("carga_modal_calendario");
 	calendario.parentNode.removeChild(calendario);
@@ -234,7 +250,7 @@ $$(document).ready(function(event){
 		setTimeout(function(){ document.getElementById(cambiarFecha).className ="signo_calendario"; },100);
 
 	});
-	
+
 	// $$('#preuba').on("touchstart", contador);
 	// $$('#preuba').on("touchend",  autoFuncion(contador))
 
