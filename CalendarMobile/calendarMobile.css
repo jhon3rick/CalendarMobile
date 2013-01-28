@@ -133,13 +133,14 @@
 .signo_calendario_selected, .signo_calendario{ height: 50px; font-size: 25px; }
 
 .fondo_modal_calendario{
-	position        : absolute !important;
-	background-color: rgba(78, 78, 78, 0.9);
-	top             : 0px;
-	width           : 100%;
-	height          : 100%;
-	display         : table;
-	left            : 0px;
-}
+	z-index          : 2;
+	top              : 0px;
+	width            : 100%;
+	height           : 100%;
+	display          : table;
+	left             : 0px;
+	position         : absolute !important;
+	background-color : rgba(0,0,0,0.6);
+	}
 
 #modal_calendario{	position : relative !important; }

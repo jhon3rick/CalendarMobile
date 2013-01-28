@@ -27,12 +27,6 @@ contenido_calendario += '		<div id="contenedor_calendario">';
 contenido_calendario += '			<div id="titulos_calendario">';
 contenido_calendario += '				<div id="titulo_calendario" class="titulo_calendario"></div>';
 contenido_calendario += '				<div id="sub_titulo_fecha_calendario"></div>';
-
-//Subtitulo cabecera columa calendario Dia Mes Año
-// contenido_calendario += '				<div class="sub_titulo_calendario">Dia</div>';
-// contenido_calendario += '				<div class="sub_titulo_calendario">Mes</div>';
-// contenido_calendario += '				<div class="sub_titulo_calendario">Año</div>';
-
 contenido_calendario += '			</div>';
 contenido_calendario += '			<div id="contenedor_day_calendario" class="fecha_calendario fecha_calendario_left">';
 contenido_calendario += '			  	<div class="contenedor_signo_calendario">';
@@ -77,7 +71,6 @@ contenido_calendario += '		</div>';
 contenido_calendario += '	</div>';
 
 function cargarCalendario(inputFecha, titulo, modal) {
-
 	//Div padre contenedor Calendario
 	var div_contenedor = document.createElement("div");
 	div_contenedor.innerHTML = contenido_calendario;
@@ -94,7 +87,10 @@ function cargarCalendario(inputFecha, titulo, modal) {
 	inputFecha.parentNode.insertBefore (div_contenedor, inputFecha.nextSibling);
 
 	//Asigna clase si el calendario es modal
-	if(modal==true){ document.getElementById("carga_modal_calendario").className	= "fondo_modal_calendario"; }
+	if(modal==true){ 
+		inputFecha.disabled = true;
+		document.getElementById("carga_modal_calendario").className	= "fondo_modal_calendario"; 
+	}
 
 	document.getElementById("titulo_calendario").innerHTML	= titulo;
 	idInputCalendario=inputFecha.id;
@@ -135,10 +131,10 @@ function daysMonthCalendario(){
 }
 
 function addRemoveYearCalendario(evento){
-
-	document.getElementById("day_calendario").style.backgroundColor="#FFF";
-	document.getElementById("month_calendario").style.backgroundColor="#FFF";
-	document.getElementById("year_calendario").style.backgroundColor="#D5E2F1";
+	
+	document.getElementById("day_calendario").style.backgroundColor   = "#FFF";
+	document.getElementById("month_calendario").style.backgroundColor = "#FFF";
+	document.getElementById("year_calendario").style.backgroundColor  = "#D5E2F1";
 
 	if(evento=="mas") yearCalendario++;
 	if(evento=="menos" && yearCalendario>limiteInferiorYear) yearCalendario--;
@@ -197,13 +193,13 @@ function addRemoveDayCalendario(evento){
 
 function accionBtnAceptar(){
 	document.getElementById(idInputCalendario).value=yearCalendario+separadorFecha+(("0"+(monthCalendario+1)).slice(-2))+separadorFecha+(("0"+(dayCalendario)).slice(-2));
-	//document.getElementById("contenedor_calendario").style.display ="none";
+	document.getElementById(idInputCalendario).disabled = false;
 	var calendario = document.getElementById("carga_modal_calendario");
 	calendario.parentNode.removeChild(calendario);
 }
 
 function accionBtnCancelar(){
-	//document.getElementById("contenedor_calendario").style.display ="none";
+	document.getElementById(idInputCalendario).disabled = false;
 	var calendario = document.getElementById("carga_modal_calendario");
 	calendario.parentNode.removeChild(calendario);
 }
@@ -228,48 +224,26 @@ function cambiarFechaCalendario(opc){
 		case 'menos_year':
 			addRemoveYearCalendario('menos');
 			break;
-
 	}
 }
-/*
-window.onload = function() {
-  	document.getElementById('prueba').addEventListener('touchstart', function(event) {
-	    alert(event.touches.length+"-"+event);
-	    //for(i in event){ alert(i+": "+event[i]) }
-	}, 	false);
-};
-*/
 
+// window.onload = function() {
+//   	document.getElementById('fechaInicial').addEventListener('touchstart', function(event) {
+// 	    alert(event.touches.length+"-"+event);
+// 	    //for(i in event){ alert(i+": "+event[i]) }
+// 	}, 	false);
+// };
 
 //Eventos Quo.js -->
 $$(document).ready(function(event){
-	$$(".signo_calendario").touch(function(){
+	$$(".signo_calendario").tap(function(){
 		cambiarFecha=$$(this).attr("id");
 		cambiarFechaCalendario(cambiarFecha);
 		document.getElementById(cambiarFecha).className ="signo_calendario_selected";
 		setTimeout(function(){ document.getElementById(cambiarFecha).className ="signo_calendario"; },100);
-
 	});
 
-	// $$('#preuba').on("touchstart", contador);
-	// $$('#preuba').on("touchend",  autoFuncion(contador))
-
-	// function autoFuncion(variable){alert(variable);}
-	// $$('.signo_calendario').touchstart(function(){
-	// 	alert("inicio")
-	// });
-
-	// $$(".signo_calendario").hold(function(event){
-	// 	console.log(event);
-	// 	for(i in event){
-	// 		console.log(i+": "+event[i])
-	// 	}
-
-	// 	cambiarFecha=$$(this).html()+$$(this).parent().attr("id");
-	// 	cambiarFechaCalendario(cambiarFecha);
-	// });
-
-	$$(".btn_calendario").touch(function(){
+	$$(".btn_calendario").tap(function(){
 		ejecutar_btn=$$(this).attr("id");
 		document.getElementById(ejecutar_btn).className ="btn_calendario_selected";
 		setTimeout(function(){ document.getElementById(ejecutar_btn).className ="btn_calendario"; },100);
