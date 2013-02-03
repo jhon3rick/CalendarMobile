@@ -3,13 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<script type="text/javascript" src="quo.js"></script>
 	<script type="text/javascript" src="calendarMobile.js"></script>
 	<link rel="stylesheet" href="calendarMobile.css">
+	<script type="text/javascript">
+		window.onload = function() {
+		  	/* <!-- Instancia la clase ClassCalendarMobile('id input','titulo',booleano si es modal o no) --> */
+			newInputFechaInicial = new ClassCalendarMobile('fechaInicial','fechaInicial',true);
+			newInputFechaFinal = new ClassCalendarMobile('fechaFinal','fechaFinal',true);
+		};
+	</script>
 </head>
 <body>
-	<!-- cargarCalendario(this,'titulo',booleano si es modal o no) -->
-	<input type="text" id="fechaInicial" onclick="cargarCalendario(this,'Fecha Inicial',true)" readonly="readonly"/><br>
-	<input type="text" id="fechaFinal" onclick="cargarCalendario(this,'Fecha Final',true)" readonly="readonly"/>
+	<input type="text" id="fechaInicial" /><br>
+	<input type="text" id="fechaFinal" />
 </body>
 </html>
