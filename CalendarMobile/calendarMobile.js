@@ -7,17 +7,34 @@
  *																			  *
  ******************************************************************************/
 
-ClassCalendarMobile=function(idDivFecha,title,modal){
+ClassCalendarMobile=function(array){
 
-	//Separador De fecha del calendario
-	var separadorFecha          = new String('-');
-	
-	
-	//Var globales 
-	var limiteInferiorYear      = 2000;
-	var inputFecha              = new String;
-	var parentCalendarMobile    = new String;
-	
+	//Var Globales
+	var idDivFecha           = new String;
+	var inputFecha           = new String;
+	var title                = new String;
+	var modal                = new String;
+	var parentCalendarMobile = new String;
+	var obj                  = eval (array);
+	var separatorDate        = new String('-');
+	var limitDate            = new Number(2000);
+
+	//Metodo id_input Obligatorio
+	if(obj.id_input){ idDivFecha = obj.id_input;}
+	else{alert('Error Metodo id_input obligatorio'); return; }
+
+	//Arrays Globales
+	var arrayDays  = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+	var arrayMonths = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+	//Asignacion Variables evaluadas del objeto Json
+	if(obj.title) title                 = obj.title;
+	if(obj.modal) modal                 = obj.modal;
+	if(obj.limitDate) limitDate         = obj.limitDate;
+	if(obj.separatorDate) separatorDate = obj.separatorDate;
+	if(obj.arrayDays) arrayDays         = obj.arrayDays.split(',');
+	if(obj.arrayMonths) arrayMonths     = obj.arrayMonths.split(',');
+
 	//Var que almacenan fecha
 	var yearCalendarMobile      = new String;
 	var monthCalendarMobile     = new String;
@@ -27,10 +44,6 @@ ClassCalendarMobile=function(idDivFecha,title,modal){
 	var subTitle                = new String;
 	var textMonthCalendarMobile = new String;
 	var textDayCalendarMobile   = new String;
-	
-	var arrayMonth = new Array ("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic");
-	//var arrayMonth = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-	var arrayDays  = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
 	inputFecha=document.getElementById(idDivFecha);
 	inputFecha.onclick=function(){ loadCalendario(); };
@@ -94,7 +107,7 @@ ClassCalendarMobile=function(idDivFecha,title,modal){
 		//Comprobacion si el input esta vacio o tiene una fecha
 		if(inputFecha.value==""){ fechaCalendario = new Date(); }
 		else{
-			valueInputFecha	= inputFecha.value.split(separadorFecha);
+			valueInputFecha	= inputFecha.value.split(separatorDate);
 			fechaCalendario	= new Date(valueInputFecha[0], valueInputFecha[1]-1, valueInputFecha[2]);
 		}
 
@@ -104,20 +117,21 @@ ClassCalendarMobile=function(idDivFecha,title,modal){
 		dayCalendarMobile   = fechaCalendario.getDate();
 
 		//Variables String del calendario
-		textMonthCalendarMobile = arrayMonth[monthCalendarMobile].slice(0,3);
+		textMonthCalendarMobile = arrayMonths[monthCalendarMobile].slice(0,3);
 		textDayCalendarMobile   = ("0"+dayCalendarMobile).slice(-2);
-		subTitle=arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonth[monthCalendarMobile]+" de "+yearCalendarMobile;
+		subTitle=arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonths[monthCalendarMobile]+" de "+yearCalendarMobile;
 
 		//Elimina el calendario si esta desplegado
 		if(document.getElementById('divPadreCalendario')){
-			inputFecha.parentNode.removeChild(inputFecha);
+			document.getElementById('divPadreCalendario').parentNode.removeChild(document.getElementById('divPadreCalendario'));
 		}
 
 		//Creacion del Div padre contenedor Calendario
 		parentCalendarMobile = document.createElement("div");
 		parentCalendarMobile.innerHTML = bodyCalendar();
 		parentCalendarMobile.setAttribute("id", "divPadreCalendario");
-		//padre_calendario=inputFecha.parentNode;
+		
+		
 
 		//Inserta calendario despues del nodo input
 		inputFecha.parentNode.insertBefore(parentCalendarMobile, inputFecha.nextSibling);
@@ -163,7 +177,7 @@ ClassCalendarMobile=function(idDivFecha,title,modal){
 			selectedBtnCalendarMobile(this, 'addRemove')
 		}, false);
 		document.getElementById('aceptarCalendarMobile').addEventListener(eventListener, function(event){
-			inputFecha.value=yearCalendarMobile+separadorFecha+(("0"+(monthCalendarMobile+1)).slice(-2))+separadorFecha+(("0"+(dayCalendarMobile)).slice(-2));
+			inputFecha.value=yearCalendarMobile+separatorDate+(("0"+(monthCalendarMobile+1)).slice(-2))+separatorDate+(("0"+(dayCalendarMobile)).slice(-2));
 			selectedBtnCalendarMobile(this, 'btn')
 		}, false);
 		document.getElementById('cancelarCalendarMobile').addEventListener(eventListener, function(event){
@@ -212,14 +226,14 @@ ClassCalendarMobile=function(idDivFecha,title,modal){
 		document.getElementById("yearCalendarMobile").style.backgroundColor  = "#D5E2F1";
 
 		if(evento=="add") yearCalendarMobile++;
-		if(evento=="remove" && yearCalendarMobile>limiteInferiorYear) yearCalendarMobile--;
+		if(evento=="remove" && yearCalendarMobile>limitDate) yearCalendarMobile--;
 		document.getElementById("yearCalendarMobile").innerHTML=yearCalendarMobile;
 
 		if(!validaDateCalendarMobile()) daysMonthCalendarMobile();
 		document.getElementById("dayCalendarMobile").innerHTML=(("0"+(dayCalendarMobile)).slice(-2));
 
 		fechaCalendario	= new Date(yearCalendarMobile, monthCalendarMobile, dayCalendarMobile);
-		document.getElementById("subTitleDateCalendarMobile").innerHTML = (arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonth[monthCalendarMobile]+" de "+yearCalendarMobile);
+		document.getElementById("subTitleDateCalendarMobile").innerHTML = (arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonths[monthCalendarMobile]+" de "+yearCalendarMobile);
 	}
 
 	function addRemoveMonthCalendarMobile(evento){
@@ -236,13 +250,13 @@ ClassCalendarMobile=function(idDivFecha,title,modal){
 			if(monthCalendarMobile<0)monthCalendarMobile=11;
 		}
 		//document.getElementById("month_calendario").innerHTML=monthCalendarMobile+1;
-		document.getElementById("monthCalendarMobile").innerHTML= arrayMonth[monthCalendarMobile].slice(0,3);
+		document.getElementById("monthCalendarMobile").innerHTML= arrayMonths[monthCalendarMobile].slice(0,3);
 
 		if(!validaDateCalendarMobile()) daysMonthCalendarMobile();
 		document.getElementById("dayCalendarMobile").innerHTML=(("0"+(dayCalendarMobile)).slice(-2));
 
 		fechaCalendario	= new Date(yearCalendarMobile, monthCalendarMobile, dayCalendarMobile);
-		document.getElementById("subTitleDateCalendarMobile").innerHTML = (arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonth[monthCalendarMobile]+" de "+yearCalendarMobile);
+		document.getElementById("subTitleDateCalendarMobile").innerHTML = (arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonths[monthCalendarMobile]+" de "+yearCalendarMobile);
 	}
 
 	function addRemoveDayCalendarMobile(evento){
@@ -263,7 +277,7 @@ ClassCalendarMobile=function(idDivFecha,title,modal){
 		document.getElementById("dayCalendarMobile").innerHTML=(("0"+dayCalendarMobile).slice(-2));
 
 		fechaCalendario	= new Date(yearCalendarMobile, monthCalendarMobile, dayCalendarMobile);
-		document.getElementById("subTitleDateCalendarMobile").innerHTML = (arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonth[monthCalendarMobile]+" de "+yearCalendarMobile);
+		document.getElementById("subTitleDateCalendarMobile").innerHTML = (arrayDays[fechaCalendario.getDay()]+", "+dayCalendarMobile+" de "+arrayMonths[monthCalendarMobile]+" de "+yearCalendarMobile);
 	}
 }
 
