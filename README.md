@@ -18,7 +18,7 @@ arrayMonths   : Opcional 		array con meses, inicia en Enero -> valor por Default
 
 <h2>Uso</h2>
 <pre>
-<script type="text/javascript">
+&lt;script type="text/javascript"&gt;
 
 	window.onload = function() {
 		/* <!-- Se crea una nueva Instancia la clase ClassCalendarMobile --> */
@@ -34,7 +34,7 @@ arrayMonths   : Opcional 		array con meses, inicia en Enero -> valor por Default
 		});
 	};
 	
-</script>
+&lt;/script&lt;
 <input type="text" id="fechaInicial" />
 </pre>
 
