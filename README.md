@@ -34,8 +34,8 @@ arrayMonths   : Opcional 		array con meses, inicia en Enero -> valor por Default
 		});
 	};
 	
-&lt;/script&lt;
-<input type="text" id="fechaInicial" />
+&lt;/script&gt;
+&lt;input type="text" id="fechaInicial" /&gt;
 </pre>
 
 
