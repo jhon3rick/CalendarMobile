@@ -6,7 +6,7 @@ En esta ultima actualizacion brinda soporte a una coleccion de atributos que per
 En cuanto al uso CalendarMobile esta diseñado para ser compatible con las diferentes librerias al implementar toda la logica funcional con javascript.
 
 <h2>METODOS DEL OBJETO CLASSCALENDARMOBILE</h2>
-<p><pre>
+<pre>
 id_input      : Obligatorio 	Id del input q contiene el valor del calendario
 title         : Opcional 		Titulo de la ventana del calendario
 modal         : Opcional 		Boleano si el calendario es modal o no, por default es false
@@ -14,7 +14,7 @@ separatorDate : Opcional 		Signo separador de day month year, por default es '-'
 limitDate     : Opcional 		limite inferior year, por default es '2000'
 arrayDays     : Opcional 		array con dias, inicia en Domingo -> valor por Default "Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"
 arrayMonths   : Opcional 		array con meses, inicia en Enero -> valor por Default "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-</pre></p>
+</pre>
 
 <h2>Uso</h2>
 <pre>
