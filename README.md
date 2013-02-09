@@ -1,4 +1,4 @@
-﻿<h1>CalendarMobile V1.3<h1>
+﻿<h1>CalendarMobile V1.4<h1>
 
 selector de fecha optimizado para el uso en dispositivos móviles.
 este selector de fecha utiliza javascript, html y css para cumplir su proposito.
@@ -10,10 +10,16 @@ En cuanto al uso CalendarMobile esta diseñado para ser compatible con las difer
 id_input      : Obligatorio 	Id del input q contiene el valor del calendario
 title         : Opcional 		Titulo de la ventana del calendario
 modal         : Opcional 		Boleano si el calendario es modal o no, por default es false
+id_position   : Opcional		Metodo modal true --> id del padre donde se renderizara la modal calendario, por default se renderiza en el body
+								Metodo modal false o default --> id del elemento padre donde se renderizara la modal calendario
+
 separatorDate : Opcional 		Signo separador de day month year, por default es '-'
 limitDate     : Opcional 		limite inferior year, por default es '2000'
 arrayDays     : Opcional 		array con dias, inicia en Domingo -> valor por Default "Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"
 arrayMonths   : Opcional 		array con meses, inicia en Enero -> valor por Default "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
+
+.closeCalendarMobile() 			Metodo global independiente de la instancia para cerrar el CalendarMobile ideal para ser ejecutado cuando el usuario
+								toca el boton atras del dispositivo movil y no se sabe q instancia del calendario esta desplegado o no se quiere consultar :P.
 </pre>
 
 <h2>Uso</h2>
