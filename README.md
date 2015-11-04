@@ -1,4 +1,4 @@
-﻿<h1>CalendarMobile V1.4<h1>
+﻿<h1>CalendarMobile V1.4</h1>
 
 selector de fecha optimizado para el uso en dispositivos móviles.
 este selector de fecha utiliza javascript, html y css para cumplir su proposito.
@@ -30,7 +30,7 @@ arrayMonths   : Opcional 		array con meses, inicia en Enero -> valor por Default
 		/* <!-- Se crea una nueva Instancia la clase ClassCalendarMobile --> */
 		var newInputFechaInicial = new ClassCalendarMobile
 		({
-			id_input      : 'fechaInicial',	
+			id_input      : 'fechaInicial',
 			title         : 'Fecha Inicial',
 			modal         : true,
 			separatorDate : '/',
@@ -39,7 +39,7 @@ arrayMonths   : Opcional 		array con meses, inicia en Enero -> valor por Default
 			arrayMonths   : 'Ene,Feb,Mar,Abr,May,Jun,Jul,Ago,Sep,Oct,Nov,Dic'
 		});
 	};
-	
+
 &lt;/script&gt;
 &lt;input type="text" id="fechaInicial" /&gt;
 </pre>
